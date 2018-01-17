@@ -17,10 +17,17 @@ def updateinfo():
     text = e1.get()
     label = Label(frame, text=text)
     label.pack()
+    findinfo(rows)
 
 def findinfo(rows):
+    text = e1.get()
     for row in rows:
-
+        result = re.search(text, row[1])
+        if result:
+            newlabel = Label(frame, text="true")
+            newlabel.pack()
+        
+    
 if __name__ == '__main__':
     rows = create_connection("chinook.db")
 
