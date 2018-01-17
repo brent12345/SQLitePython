@@ -1,6 +1,16 @@
+import requests
+import json
 import sqlite3
 from sqlite3 import Error
 import re
+import urllib.request
+
+def getjson():
+    url = 'https://www.reddit.com/r/all/top/.json'
+    req = urllib.request.Request(url)
+    r = urllib.request.urlopen(req).read()
+    cont = json.loads(r.decode('utf-8'))
+    return cont
 
 def select_all_tasks(conn):
     """
