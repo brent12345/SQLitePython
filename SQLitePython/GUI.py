@@ -1,5 +1,6 @@
 from tkinter import *
 from SQLitePython import *
+import re
 
 
 root = Tk()
@@ -17,16 +18,19 @@ def updateinfo():
     label = Label(frame, text=text)
     label.pack()
 
+def findinfo(rows):
+    for row in rows:
 
 if __name__ == '__main__':
     rows = create_connection("chinook.db")
-count = 1
+
 #label = []
 #for row in rows:
 #    label = Label(root, text = row[1], anchor=W, justify=CENTER) 
-e1 = Entry(frame , width=50)
-e1.pack()    
 #    label.pack(side="bottom")
+
+e1 = Entry(frame , width=50)
+e1.pack()  
 blackbutton = Button(frame, text="FIND", background="black", fg="white", command=updateinfo)
 blackbutton.pack( side = BOTTOM)
 
